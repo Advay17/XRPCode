@@ -367,6 +367,13 @@ Blockly.Python['xrp_sleep'] = function (block) {
   return code;
 };
 
+//Loops
+Blockly.Python['xrp_loop_forever'] = function (block) {
+  var func = Blockly.Python.statementToCode(block, 'func');
+  var code = `\nwhile True:\n${func}\n`;
+  return code;
+};
+
 Blockly.Python['comment'] = function(block) {
   var text = block.getFieldValue('TEXT');
   return '# ' + text + '\n';

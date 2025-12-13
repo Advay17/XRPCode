@@ -349,7 +349,11 @@ var baseToolbox = {
                     "kind": "BLOCK",
                     "blockxml": "<block type=\"controls_flow_statements\">\n                <field name=\"FLOW\">BREAK</field>\n              </block>",
                     "type": "controls_flow_statements"
-                }
+                },
+                {
+                    "kind": "BLOCK",
+                    "type": "xrp_loop_forever"
+                },
             ],
             "name": "Loops",
             "colour": "#5ba55b" // grass green

@@ -610,6 +610,21 @@ Blockly.Blocks['xrp_sleep'] = {
   }
 };
 
+//Loops
+Blockly.Blockks['xrp_loop_forever'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("repeat forever")
+    this.appendStatementInput('func')
+      .appendField('Do:');
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120); // grass green
+    this.setTooltip("Do some statements forever");
+    this.setHelpUrl("");
+  }
+};
+
 // OTHER BLOCK COLORS - These colors can be found in the xrp_blockly_toolbox1.js file
 // BLOCK TYPE --> COLOR
 // Loops --> grass green
