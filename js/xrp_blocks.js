@@ -611,12 +611,12 @@ Blockly.Blocks['xrp_sleep'] = {
 };
 
 //Loops
-Blockly.Blockks['xrp_loop_forever'] = {
+Blockly.Blocks['xrp_loop_forever'] = {
   init: function () {
     this.appendDummyInput()
       .appendField("repeat forever")
     this.appendStatementInput('func')
-      .appendField('Do:');
+      .appendField('do:');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(120); // grass green
