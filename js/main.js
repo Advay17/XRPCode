@@ -289,6 +289,12 @@ document.getElementById("IDFileSaveAs").onclick = (event) =>{
     EDITORS[id].onSaveAsToThumby();
 }
 
+document.getElementById("IDFileDeleteAll").onclick = (event) =>{
+    UIkit.dropdown(FILE_DROPDOWN).hide();
+    let id = localStorage.getItem("activeTabId");
+    EDITORS[id].onDeleteAllFiles();
+}
+
 // View Menu Support
 VIEW_BUTTON.onclick = (event) =>{
     //get active file id
@@ -813,6 +819,14 @@ function registerEditor(_container, state) {
             }
         }else{
             window.alertMessage("No XRP is connected. Files can not be uploaded. Double-check that the XRP is connected before attempting to upload a file.");
+        }
+    }
+    
+    editor.onDeleteAllFiles = async () => {
+        if(REPL.DISCONNECT == false && await confirmMessage("This will delete ALL files on the XRP, with the exception of the lib folder, the trash folder, and the XRPExamples folder. Are you SURE you want to do this?")){
+            REPL.deleteAllFiles();
+        }else{
+            window.alertMessage("No XRP is connected. Files can not be deleted. Double-check that the XRP is connected before attempting to delete a file.");
         }
     }
 
