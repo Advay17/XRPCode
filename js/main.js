@@ -289,10 +289,10 @@ document.getElementById("IDFileSaveAs").onclick = (event) =>{
     EDITORS[id].onSaveAsToThumby();
 }
 
-document.getElementById("IDFileDeleteAll").onclick = (event) =>{
+document.getElementById("IDFileDeleteNonLib").onclick = (event) =>{
     UIkit.dropdown(FILE_DROPDOWN).hide();
     let id = localStorage.getItem("activeTabId");
-    EDITORS[id].onDeleteAllFiles();
+    EDITORS[id].onDeleteNonLibFiles();
 }
 
 // View Menu Support
@@ -822,9 +822,10 @@ function registerEditor(_container, state) {
         }
     }
     
-    editor.onDeleteAllFiles = async () => {
-        if(REPL.DISCONNECT == false && await confirmMessage("This will delete ALL files on the XRP, with the exception of the lib folder, the trash folder, and the XRPExamples folder. Are you SURE you want to do this?")){
-            REPL.deleteAllFiles();
+    editor.onDeleteNonLibFiles = async () => {
+        if(REPL.DISCONNECT == false && await confirmMessage("This will permanently delete ALL files on the XRP, with the exception of the lib folder, the trash folder, and the XRPExamples folder. Are you SURE you want to do this?")){
+            REPL.deleteNonLibFiles();
+            window.alertMessage("All non-library files have been deleted from the XRP.");
         }else{
             window.alertMessage("No XRP is connected. Files can not be deleted. Double-check that the XRP is connected before attempting to delete a file.");
         }
